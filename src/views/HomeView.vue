@@ -110,31 +110,31 @@
         >
           <div class="container border-bottom border-2" style="height: 18%">
             <p class="my-auto d-flex pt-16 pb-8 mb-0">
-              {{ forecastDays.day1 }}
+              {{ forecastDays.day1 ? forecastDays.day1.substr(5, 5) : '' }}
             </p>
           </div>
 
           <div class="container border-bottom border-2" style="height: 18%">
             <p class="my-auto d-flex mb-0 pt-16 pb-8">
-              {{ forecastDays.day2 }}
+              {{ forecastDays.day2 ? forecastDays.day2.substr(5, 5) : '' }}
             </p>
           </div>
 
           <div class="container border-bottom border-2" style="height: 18%">
             <p class="my-auto d-flex mb-0 pt-16 pb-8">
-              {{ forecastDays.day3 }}
+              {{ forecastDays.day3 ? forecastDays.day3.substr(5, 5) : '' }}
             </p>
           </div>
 
           <div class="container border-bottom border-2" style="height: 18%">
             <p class="my-auto d-flex mb-0 pt-16 pb-8">
-              {{ forecastDays.day4 }}
+              {{ forecastDays.day4 ? forecastDays.day4.substr(5, 5) : '' }}
             </p>
           </div>
 
           <div class="container" style="height: 18%">
             <p class="mb-0 pt-16 pb-8">
-              {{ forecastDays.day5 }}
+              {{ forecastDays.day5 ? forecastDays.day5.substr(5, 5) : '' }}
             </p>
           </div>
         </div>
@@ -240,12 +240,11 @@ export default {
           `https://api.openweathermap.org/data/2.5/forecast?q=Taipei&units=metric&lang=zh_tw&appid=${this.apiKey}`
         )
         this.forecastData = res.data.list
+        let j = 1
         for (let i = 0; i < this.forecastData.length; i++) {
           if (this.forecastData[i].dt_txt.includes('00:00:00')) {
-            alert(i)
-            this.forecastDays['day' + [i + 1]] = this.forecastData[i].dt_txt
-            alert(['day' + [i + 1]])
-            continue
+            this.forecastDays['day' + [j]] = this.forecastData[i].dt_txt
+            j++
           }
         }
       } catch (err) {

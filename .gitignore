@@ -30,4 +30,4 @@ coverage
 *.tsbuildinfo
 
 // 忽略 .env
-*.env 
+.env 

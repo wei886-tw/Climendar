@@ -9,7 +9,7 @@
 
       <div class="col-md-6 ">
         <div class="container vh-100 d-flex flex-column align-items-center justify-content-center ">
-          <h1 class="fs-64 mb-24">Weatherndar</h1>
+          <h1 class="fs-64 mb-24">Climendar</h1>
           <p class="fs-24 fw-bold mb-60 border-top border-bottom py-24">Plan your day with weather insights!</p>
           <button class="btn btn-primary w-75 mb-24 rounded-5">
             <router-link to="/HomeView" class="text-white text-decoration-none">Get Started</router-link>

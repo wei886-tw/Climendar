@@ -1,115 +1,137 @@
 <template >
   <div class="container-fluid">
     <div class="row flex-wrap">
-      <div class="d-none d-lg-block col-lg-1 border-end border-2 border-white shadow shadow-lg vh-100">
+      <div
+        class="d-none d-lg-block col-lg-1 border-end border-2 border-white shadow shadow-lg vh-100"
+      >
         <navbar-view></navbar-view>
       </div>
 
-      <div class="col-12 col-lg-6 ps-40 pt-24">
-        <div class="container" >
-          <div class="container px-0 d-flex  mb-40">
-            <div class="container ps-0 ">
-              <h1 class="fs-32 fs-md-40 noto-serif-tc fw-bold mb-16 pt-36">台北市今日天氣</h1>
-              <p class="fs-24 mb-0">天氣狀況：{{ weatherDescription }}</p>
-              <p class="fs-24">溫度： {{ parseInt(temp) }} °C</p>
+      <div class="col-12 col-lg-8 px-24 ps-lg-40 pt-24 ">
+        <div class="container">
+          <div class="container px-0 d-flex mb-24 mb-lg-40">
+            <div class="container ps-0">
+              <h1 class="d-none d-md-block fs-40 noto-serif-tc fw-bold mb-16 pt-36">台北市今日天氣</h1>
+              <h2 class="d-block d-md-none fs-40 noto-serif-tc fw-bold pt-24">台北市</h2>
+              <h2 class="d-block d-md-none fs-40 noto-serif-tc fw-bold">今日天氣</h2>
+              <p class="d-none d-md-block fs-24 mb-0">天氣狀況：{{ weatherDescription }}</p>
+              <p class="d-none d-md-block fs-24 mb-0">溫度： {{ parseInt(temp) }} °C</p>
             </div>
-            <div class="container mb-0 pe-0  justify-content-lg-end d-none d-lg-flex" >
-              <img :src="weatherPic[weatherDescription] " alt="天氣圖片"
-              class=" " style="height: auto; max-height: 200px;">
+            <div class="container mb-0 pe-0 d-flex justify-content-end  ">
+              <img
+                :src="weatherPic[weatherDescription]"
+                alt="天氣圖片"
+                class="d-none d-md-block"
+                style="height: auto; max-height: 200px"
+              />
+              <img
+                :src="weatherPic[weatherDescription]"
+                alt="天氣圖片"
+                class=" d-block d-md-none"
+                style="height: auto; max-height: 150px"
+              />
             </div>
           </div>
         </div>
 
         <!-- 今日天氣 -->
-        <div
-          class="container d-flex px-0 justify-content-between flex-wrap align-items-center " 
-        >
+        <div class="container d-flex px-0 justify-content-between flex-wrap align-items-center mt-lg-auto" >
           <div class="row justify-content-between gap-24 gap-lg-32">
-              <div
-                class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex align-items-center justify-content-start shadow py-24 py-lg-36"
-              >
-                <p class="fs-24 mb-0"><i class="bi bi-thermometer-half"></i> 體感溫度：</p>
-                <p class="fs-24 fw-bold mb-0">&nbsp;&nbsp;&nbsp;&nbsp;{{ parseInt(feelsLike) }} °C</p>
-              </div>
+            <div
+              class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex align-items-center justify-content-start shadow py-16 py-md-36"
+            >
+              <p class="fs-20 fs-xl-24 mb-0"><i class="bi bi-thermometer-half"></i> 體感溫度：</p>
+              <p class="fs-20 fs-xl-24 fw-bold mb-0">
+                &nbsp;&nbsp;&nbsp;&nbsp;{{ parseInt(feelsLike) }} °C
+              </p>
+            </div>
 
-              <div
-                class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex align-items-center justify-content-start shadow py-24 py-lg-36"
-              >
-                <p class="fs-24 mb-0"><i class="bi bi-droplet"></i> 濕度：</p>
-                <p class="fs-24 fw-bold mb-0">&nbsp;&nbsp;&nbsp;&nbsp;{{ humidity }} %</p>
-              </div>
+            <div
+              class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex align-items-center justify-content-start shadow py-16 py-md-36"
+            >
+              <p class="fs-20 fs-xl-24 mb-0"><i class="bi bi-droplet"></i> 濕度：</p>
+              <p class="fs-20 fs-xl-24 fw-bold mb-0">&nbsp;&nbsp;&nbsp;&nbsp;{{ humidity }} %</p>
+            </div>
 
-              <div
-                class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex align-items-center justify-content-start shadow py-24 py-lg-36"
-              >
-                <p class="fs-24 mb-0"><i class="bi bi-thermometer-sun"></i> 最高溫度：</p>
-                <p class="fs-24 fw-bold mb-0">&nbsp;&nbsp;&nbsp;&nbsp;{{ parseInt(tempMax) }} °C</p>
-              </div>
+            <div
+              class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex align-items-center justify-content-start shadow py-16 py-md-36"
+            >
+              <p class="fs-20 fs-xl-24 mb-0"><i class="bi bi-thermometer-sun"></i> 最高溫度：</p>
+              <p class="fs-20 fs-xl-24 fw-bold mb-0">
+                &nbsp;&nbsp;&nbsp;&nbsp;{{ parseInt(tempMax) }} °C
+              </p>
+            </div>
 
-              <div
-                class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex align-items-center justify-content-start shadow py-24 py-lg-36"
-              >
-                <p class="fs-24 mb-0"><i class="bi bi-graph-up"></i> 氣壓：</p>
-                <p class="fs-24 fw-bold mb-0">&nbsp;&nbsp;&nbsp;&nbsp;{{ pressure }} hPa</p>
-              </div>
+            <div
+              class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex align-items-center justify-content-start shadow py-16 py-md-36"
+            >
+              <p class="fs-20 fs-xl-24 mb-0"><i class="bi bi-graph-up"></i> 氣壓：</p>
+              <p class="fs-20 fs-xl-24 fw-bold mb-0">&nbsp;&nbsp;&nbsp;&nbsp;{{ pressure }} hPa</p>
+            </div>
 
-              <div
-                class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex justify-content-start align-items-center shadow  py-24 py-lg-36"
-              >
-                <p class="fs-24 mb-0"><i class="bi bi-thermometer-snow"></i> 最低溫度：</p>
-                <p class="fs-24 fw-bold mb-0">&nbsp;&nbsp;&nbsp;&nbsp;{{ parseInt(tempMin) }} °C</p>
-              </div>
+            <div
+              class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex justify-content-start align-items-center shadow py-16 py-md-36"
+            >
+              <p class="fs-20 fs-xl-24 mb-0"><i class="bi bi-thermometer-snow"></i> 最低溫度：</p>
+              <p class="fs-20 fs-xl-24 fw-bold mb-0">
+                &nbsp;&nbsp;&nbsp;&nbsp;{{ parseInt(tempMin) }} °C
+              </p>
+            </div>
 
-              <div
-                class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex justify-content-start align-items-center shadow py-24 py-lg-36"
-              >
-                <p class="fs-24 mb-0"><i class="bi bi-wind"></i> 風速：</p>
-                <p class="fs-24 fw-bold mb-0">&nbsp;&nbsp;&nbsp;&nbsp;{{ speed }} m/s</p>
-              </div>
+            <div
+              class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex justify-content-start align-items-center shadow py-16 py-md-36"
+            >
+              <p class="fs-20 fs-xl-24 mb-0"><i class="bi bi-wind"></i> 風速：</p>
+              <p class="fs-20 fs-xl-24 fw-bold mb-0">&nbsp;&nbsp;&nbsp;&nbsp;{{ speed }} m/s</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 col-xxl-3 pt-24 ps-48">
+      <div class="col-12 col-lg-3  pt-24 px-24 ps-lg-48 d-flex flex-column" style="min-height: 100vh">
         <div class="container px-0 d-flex justify-content-between"></div>
         <!-- 明日預測 -->
         <h2 class="fs-40 mb-24 noto-serif-tc fw-bold text-white">台北市一週天氣</h2>
-        <div class="container mb-32">
+        <div class="container  mb-24 mb-xxl-32">
           <p class="fs-24 mb-0">明日天氣： {{ nextWeatherDescription }}</p>
           <div class="container d-flex justify-content-between px-0">
-            <div class="container px-0 ">
-              <p class="mb-0 fw-bolder fs-24">
-                <i class="bi bi-thermometer-half" style="-webkit-text-stroke: 0.5px"></i
+            <!-- <div class="container px-0">
+              <p class="mb-0 fw-bolder fs-24 d-lg-none d-xl-block">
+                <i class="bi bi-thermometer-half " style="-webkit-text-stroke: 0.5px"></i
                 >&nbsp;&nbsp;
               </p>
-              <p class="mb-0 fs-md-20">{{ parseInt(nextDayFeelsLike) }} °C</p>
+              <div class="container d-flex flex-xl-column px-0">
+                <p class="d-lg-none">體感溫度：</p>
+                <p class="mb-0 fs-16 fs-xl-24">{{ parseInt(nextDayFeelsLike) }} °C</p>
+              </div>
+            </div> -->
+
+            <div class="container px-0 ">
+              <div class="container d-flex  px-0 ">
+                <p class="fs-24 mb-0">低溫：</p>
+                <p class="mb-0  fs-24">{{ parseInt(nextDayTempMin) }} °C</p>
+              </div>
             </div>
 
             <div class="container px-0">
-              <p class="mb-0 fw-bolder fs-24">
-                <i class="bi bi-thermometer-snow" style="-webkit-text-stroke: 0.5px"></i
-                >&nbsp;&nbsp;
-              </p>
-              <p class="mb-0 fs-md-20">{{ parseInt(nextDayTempMin) }} °C</p>
-            </div>
-            
-            <div class="container px-0">
-              <p class="mb-0 fw-bolder fs-24">
+              <!-- <p class="mb-0 fw-bolder fs-24 d-lg-none d-xl-block">
                 <i class="bi bi-thermometer-sun" style="-webkit-text-stroke: 0.5px"></i>&nbsp;&nbsp;
-              </p>
-              <p class="mb-0 fs-md-20">{{ parseInt(nextDayTempMax) }} °C</p>
+              </p> -->
+              <div class="container d-flex px-0">
+                <p class="fs-24 mb-0">高溫：</p>
+                <p class="mb-0  fs-24">{{ parseInt(nextDayTempMax) }} °C</p>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- 一週預測 -->
         <div
-          class="container px-0 d-flex flex-column justify-content-between border border-2 rounded rounded-3"
-          style="height: auto; min-height: 65%;"
+          class="container px-0 d-flex flex-column justify-content-between border border-2 rounded rounded-3 mt-lg-auto"
         >
-          <div class="container border-bottom border-2" style="height: 18%">
-            <div class="container d-flex pt-16 pb-8 mb-0 justify-content-between pe-24">
-              <p class="">
+          <div class="container border-bottom border-2 " >
+            <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
+              <p class="fs-24 mb-0">
                 {{ forecastDays.day1 ? forecastDays.day1.substr(5, 5) : '' }} :&nbsp; &nbsp;
                 {{
                   weatherEmoji[
@@ -118,16 +140,16 @@
                 }}
               </p>
 
-              <p class="">
+              <p class="d-block d-lg-none  fs-24 mb-0">
                 {{ forecastWeather.day1 ? parseInt(forecastWeather.day1.temp_max) : '' }}/
                 {{ forecastWeather.day1 ? parseInt(forecastWeather.day1.temp_min) : '' }}
               </p>
             </div>
           </div>
 
-          <div class="container border-bottom border-2" style="height: 18%">
-            <div class="container d-flex pt-16 pb-8 mb-0 justify-content-between pe-24">
-              <p>
+          <div class="container border-bottom border-2 " >
+            <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
+              <p class="fs-24 mb-0">
                 {{ forecastDays.day2 ? forecastDays.day2.substr(5, 5) : '' }} :&nbsp; &nbsp;
                 {{
                   weatherEmoji[
@@ -138,16 +160,16 @@
                 }}
               </p>
 
-              <p class="">
+              <p class="d-block d-lg-none  fs-24 mb-0">
                 {{ forecastWeather.day2 ? parseInt(forecastWeather.day2.temp_max) : '' }}/
                 {{ forecastWeather.day2 ? parseInt(forecastWeather.day2.temp_min) : '' }}
               </p>
             </div>
           </div>
 
-          <div class="container border-bottom border-2" style="height: 18%">
-            <div class="container d-flex pt-16 pb-8 mb-0 justify-content-between pe-24">
-              <p>
+          <div class="container border-bottom border-2 ">
+            <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
+              <p class="fs-24 mb-0">
                 {{ forecastDays.day3 ? forecastDays.day3.substr(5, 5) : '' }} : &nbsp; &nbsp;
                 {{
                   weatherEmoji[
@@ -158,16 +180,16 @@
                 }}
               </p>
 
-              <p class="">
+              <p class="d-block d-lg-none  fs-24 mb-0">
                 {{ forecastWeather.day3 ? parseInt(forecastWeather.day3.temp_max) : '' }}/
                 {{ forecastWeather.day3 ? parseInt(forecastWeather.day3.temp_min) : '' }}
               </p>
             </div>
           </div>
 
-          <div class="container border-bottom border-2" style="height: 18%">
-            <div class="container d-flex pt-16 pb-8 mb-0 justify-content-between pe-24">
-              <p>
+          <div class="container border-bottom border-2 ">
+            <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
+              <p class="fs-24 mb-0">
                 {{ forecastDays.day4 ? forecastDays.day4.substr(5, 5) : '' }} : &nbsp; &nbsp;
                 {{
                   forecastDescription.day4 && forecastDescription.day4[0]
@@ -176,16 +198,16 @@
                 }}
               </p>
 
-              <p class="">
+              <p class="d-block d-lg-none fs-24 mb-0">
                 {{ forecastWeather.day4 ? parseInt(forecastWeather.day4.temp_max) : '' }}/
                 {{ forecastWeather.day4 ? parseInt(forecastWeather.day4.temp_min) : '' }}
               </p>
             </div>
           </div>
 
-          <div class="container" style="height: 18%">
-            <div class="container d-flex pt-16 pb-8 mb-0 justify-content-between pe-24">
-              <p>
+          <div class="container " >
+            <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
+              <p class=" fs-24 mb-0">
                 {{ forecastDays.day5 ? forecastDays.day5.substr(5, 5) : '' }} : &nbsp; &nbsp;
                 {{
                   forecastDescription.day5 && forecastDescription.day5[0]
@@ -194,13 +216,14 @@
                 }}
               </p>
 
-              <p class="">
+              <p class="fs-24 d-block d-lg-none ">
                 {{ forecastWeather.day5 ? parseInt(forecastWeather.day5.temp_max) : '' }}/
                 {{ forecastWeather.day5 ? parseInt(forecastWeather.day5.temp_min) : '' }}
               </p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -249,6 +272,7 @@ export default {
         陣雨: '🌦️',
         雪: '❄️',
         霧: '🌫️',
+        '晴，少雲': '🌤️'
       },
       weatherPic: {
         小雨: 'https://cdn-icons-png.flaticon.com/512/1779/1779927.png',

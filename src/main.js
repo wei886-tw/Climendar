@@ -17,6 +17,9 @@ import axios from 'axios';
 import { LoadingPlugin } from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/css/index.css';
 
+// 
+window.VITE_GOOGLE_OAUTH2_CLIENT_ID = import.meta.env.VITE_GOOGLE_OAUTH2_CLIENT_ID
+
 const app = createApp(App);
 app.use(createPinia());
 app.use(router);

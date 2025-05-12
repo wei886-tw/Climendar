@@ -7,17 +7,19 @@
         <navbar-view></navbar-view>
       </div>
 
-      <div class="col-12 col-lg-8 px-24 ps-lg-40 pt-24 ">
+      <div class="col-12 col-lg-8 px-24 ps-lg-40 pt-24">
         <div class="container">
           <div class="container px-0 d-flex mb-24 mb-lg-40">
             <div class="container ps-0">
-              <h1 class="d-none d-md-block fs-40 noto-serif-tc fw-bold mb-16 pt-36">台北市今日天氣</h1>
+              <h1 class="d-none d-md-block fs-40 noto-serif-tc fw-bold mb-16 pt-36">
+                台北市今日天氣
+              </h1>
               <h2 class="d-block d-md-none fs-40 noto-serif-tc fw-bold pt-24">台北市</h2>
               <h2 class="d-block d-md-none fs-40 noto-serif-tc fw-bold">今日天氣</h2>
               <p class="d-none d-md-block fs-24 mb-0">天氣狀況：{{ weatherDescription }}</p>
               <p class="d-none d-md-block fs-24 mb-0">溫度： {{ parseInt(temp) }} °C</p>
             </div>
-            <div class="container mb-0 pe-0 d-flex justify-content-end  ">
+            <div class="container mb-0 pe-0 d-flex justify-content-end">
               <img
                 :src="weatherPic[weatherDescription]"
                 alt="天氣圖片"
@@ -27,7 +29,7 @@
               <img
                 :src="weatherPic[weatherDescription]"
                 alt="天氣圖片"
-                class=" d-block d-md-none"
+                class="d-block d-md-none"
                 style="height: auto; max-height: 150px"
               />
             </div>
@@ -35,7 +37,9 @@
         </div>
 
         <!-- 今日天氣 -->
-        <div class="container d-flex px-0 justify-content-between flex-wrap align-items-center mt-lg-auto" >
+        <div
+          class="container d-flex px-0 justify-content-between flex-wrap align-items-center mt-lg-auto"
+        >
           <div class="row justify-content-between gap-24 gap-lg-32">
             <div
               class="col-12 col-lg-5 border rounded rounded-3 ps-16 d-flex align-items-center justify-content-start shadow py-16 py-md-36"
@@ -88,11 +92,14 @@
         </div>
       </div>
 
-      <div class="col-12 col-lg-3  pt-24 px-24 ps-lg-48 d-flex flex-column" style="min-height: 100vh">
+      <div
+        class="col-12 col-lg-3 pt-24 px-24 ps-lg-48 d-flex flex-column"
+        style="min-height: 100vh"
+      >
         <div class="container px-0 d-flex justify-content-between"></div>
         <!-- 明日預測 -->
         <h2 class="fs-40 mb-24 noto-serif-tc fw-bold text-white">台北市一週天氣</h2>
-        <div class="container  mb-24 mb-xxl-32">
+        <div class="container mb-lg-60 mb-xxl-96">
           <p class="fs-24 mb-0">明日天氣： {{ nextWeatherDescription }}</p>
           <div class="container d-flex justify-content-between px-0">
             <!-- <div class="container px-0">
@@ -106,10 +113,10 @@
               </div>
             </div> -->
 
-            <div class="container px-0 ">
-              <div class="container d-flex  px-0 ">
+            <div class="container px-0">
+              <div class="container d-flex px-0 justify-content-start flex-wrap">
                 <p class="fs-24 mb-0">低溫：</p>
-                <p class="mb-0  fs-24">{{ parseInt(nextDayTempMin) }} °C</p>
+                <p class="mb-0 fs-24">{{ parseInt(nextDayTempMin) }} °C</p>
               </div>
             </div>
 
@@ -117,9 +124,9 @@
               <!-- <p class="mb-0 fw-bolder fs-24 d-lg-none d-xl-block">
                 <i class="bi bi-thermometer-sun" style="-webkit-text-stroke: 0.5px"></i>&nbsp;&nbsp;
               </p> -->
-              <div class="container d-flex px-0">
+              <div class="container d-flex px-0 justify-content-end flex-wrap">
                 <p class="fs-24 mb-0">高溫：</p>
-                <p class="mb-0  fs-24">{{ parseInt(nextDayTempMax) }} °C</p>
+                <p class="mb-0 fs-24">{{ parseInt(nextDayTempMax) }} °C</p>
               </div>
             </div>
           </div>
@@ -127,12 +134,15 @@
 
         <!-- 一週預測 -->
         <div
-          class="container px-0 d-flex flex-column justify-content-between border border-2 rounded rounded-3 mt-lg-auto"
+          class="container px-0 d-flex flex-column justify-content-between border border-2 rounded rounded-3 "
         >
-          <div class="container border-bottom border-2 " >
+          <div class="container border-bottom border-2">
             <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
-              <p class="fs-24 mb-0">
-                {{ forecastDays.day1 ? forecastDays.day1.substr(5, 5) : '' }} :&nbsp; &nbsp;
+              <!-- todo 優化 RWD UI -->
+              <p class="fs-20 fs-md-24 mb-0 d-block d-lg-none d-xl-block">
+                {{ forecastDays.day1 ? forecastDays.day1.substr(5, 5) : '' }} :&nbsp;&nbsp;
+              </p>
+              <p class="fs-20 fs-md-24 mb-0">
                 {{
                   weatherEmoji[
                     forecastDescription.day1 ? forecastDescription.day1[0].description : ''
@@ -140,17 +150,19 @@
                 }}
               </p>
 
-              <p class="d-block d-lg-none  fs-24 mb-0">
+              <p class="d-block d-lg-none d-xl-block fs-20 fs-md-24 mb-0">
                 {{ forecastWeather.day1 ? parseInt(forecastWeather.day1.temp_max) : '' }}/
                 {{ forecastWeather.day1 ? parseInt(forecastWeather.day1.temp_min) : '' }}
               </p>
             </div>
           </div>
 
-          <div class="container border-bottom border-2 " >
+          <div class="container border-bottom border-2">
             <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
-              <p class="fs-24 mb-0">
+              <p class="fs-20 fs-md-24 mb-0 d-block d-lg-none d-xl-block">
                 {{ forecastDays.day2 ? forecastDays.day2.substr(5, 5) : '' }} :&nbsp; &nbsp;
+              </p>
+              <p class="fs-20 fs-md-24 mb-0">
                 {{
                   weatherEmoji[
                     forecastDescription.day2 && forecastDescription.day2[0]
@@ -160,17 +172,19 @@
                 }}
               </p>
 
-              <p class="d-block d-lg-none  fs-24 mb-0">
+              <p class="d-block d-lg-none fs-20 fs-md-24 mb-0">
                 {{ forecastWeather.day2 ? parseInt(forecastWeather.day2.temp_max) : '' }}/
                 {{ forecastWeather.day2 ? parseInt(forecastWeather.day2.temp_min) : '' }}
               </p>
             </div>
           </div>
 
-          <div class="container border-bottom border-2 ">
+          <div class="container border-bottom border-2">
             <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
-              <p class="fs-24 mb-0">
-                {{ forecastDays.day3 ? forecastDays.day3.substr(5, 5) : '' }} : &nbsp; &nbsp;
+              <p class="fs-20 fs-md-24 mb-0 d-block d-lg-none d-xl-block">
+                {{ forecastDays.day3 ? forecastDays.day3.substr(5, 5) : '' }} :&nbsp; &nbsp;
+              </p>
+              <p class="fs-20 fs-md-24 mb-0">
                 {{
                   weatherEmoji[
                     forecastDescription.day3 && forecastDescription.day3[0]
@@ -180,17 +194,19 @@
                 }}
               </p>
 
-              <p class="d-block d-lg-none  fs-24 mb-0">
+              <p class="d-block d-lg-none fs-20 fs-md-24 mb-0">
                 {{ forecastWeather.day3 ? parseInt(forecastWeather.day3.temp_max) : '' }}/
                 {{ forecastWeather.day3 ? parseInt(forecastWeather.day3.temp_min) : '' }}
               </p>
             </div>
           </div>
 
-          <div class="container border-bottom border-2 ">
+          <div class="container border-bottom border-2">
             <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
-              <p class="fs-24 mb-0">
-                {{ forecastDays.day4 ? forecastDays.day4.substr(5, 5) : '' }} : &nbsp; &nbsp;
+              <p class="fs-20 fs-md-24 mb-0 d-block d-lg-none d-xl-block">
+                {{ forecastDays.day4 ? forecastDays.day4.substr(5, 5) : '' }} :&nbsp; &nbsp;
+              </p>
+              <p class="fs-20 fs-md-24 mb-0">
                 {{
                   forecastDescription.day4 && forecastDescription.day4[0]
                     ? weatherEmoji[forecastDescription.day4[0].description]
@@ -198,17 +214,19 @@
                 }}
               </p>
 
-              <p class="d-block d-lg-none fs-24 mb-0">
+              <p class="d-block d-lg-none fs-20 fs-md-24 mb-0">
                 {{ forecastWeather.day4 ? parseInt(forecastWeather.day4.temp_max) : '' }}/
                 {{ forecastWeather.day4 ? parseInt(forecastWeather.day4.temp_min) : '' }}
               </p>
             </div>
           </div>
 
-          <div class="container " >
+          <div class="container">
             <div class="container d-flex py-16 py-xxl-20 mb-0 justify-content-between pe-24">
-              <p class=" fs-24 mb-0">
-                {{ forecastDays.day5 ? forecastDays.day5.substr(5, 5) : '' }} : &nbsp; &nbsp;
+              <p class="fs-20 fs-md-24 mb-0 d-block d-lg-none d-xl-block">
+                {{ forecastDays.day5 ? forecastDays.day5.substr(5, 5) : '' }} :&nbsp; &nbsp;
+              </p>
+              <p class="fs-20 fs-md-24 mb-0">
                 {{
                   forecastDescription.day5 && forecastDescription.day5[0]
                     ? weatherEmoji[forecastDescription.day5[0].description]
@@ -216,14 +234,13 @@
                 }}
               </p>
 
-              <p class="fs-24 d-block d-lg-none ">
+              <p class="fs-20 fs-md-24 d-block d-lg-none">
                 {{ forecastWeather.day5 ? parseInt(forecastWeather.day5.temp_max) : '' }}/
                 {{ forecastWeather.day5 ? parseInt(forecastWeather.day5.temp_min) : '' }}
               </p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -272,7 +289,7 @@ export default {
         陣雨: '🌦️',
         雪: '❄️',
         霧: '🌫️',
-        '晴，少雲': '🌤️'
+        '晴，少雲': '🌤️',
       },
       weatherPic: {
         小雨: 'https://cdn-icons-png.flaticon.com/512/1779/1779927.png',
@@ -351,6 +368,7 @@ export default {
     },
 
     async getFiveDayForecast() {
+      const loader = this.$loading.show()
       try {
         const res = await this.$http.get(
           `https://api.openweathermap.org/data/2.5/forecast?q=Taipei&units=metric&lang=zh_tw&appid=${this.apiKey}`
@@ -368,6 +386,9 @@ export default {
       } catch (err) {
         alert(err.message)
       }
+      setTimeout(() => {
+        loader.hide()
+      }, 1000)
     },
 
     convertTimeStamp2LocalTime(timeStamp) {

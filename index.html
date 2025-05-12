@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
@@ -20,7 +21,16 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
     rel="stylesheet">
-
+  <!-- 建議將 client_id 設為 placeholder，或於 build 時用環境變數自動替換 -->
+  <script>
+    // 將 client_id 設為 placeholder，build 時用工具自動替換
+    // 假設你已在 main.js 中將 clientId 掛載到 window
+    const clientId = window.VITE_GOOGLE_OAUTH2_CLIENT_ID; // 或直接寫死 clientId 字串（不建議上 production）
+    const meta = document.createElement('meta');
+    meta.name = 'google-signin-client_id';
+    meta.content = clientId;
+    document.head.appendChild(meta);
+  </script>
 </body>
 
 </html>
@@ -31,16 +41,16 @@
   }
 
   .noto-serif-tc {
-  font-family: "Noto Serif TC", serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
-  font-style: normal;
-}
+    font-family: "Noto Serif TC", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+  }
 
-.noto-sans-tc {
-  font-family: "Noto Sans TC", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
-  font-style: normal;
-}
+  .noto-sans-tc {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+  }
 </style>

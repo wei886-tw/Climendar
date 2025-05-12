@@ -7,10 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Climendar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC:wght@200..900&display=swap"
@@ -39,11 +35,12 @@
 <body>
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
-  <!-- 建議將 client_id 設為 placeholder，或於 build 時用環境變數自動替換 -->
   <script>
     // 將 client_id 設為 placeholder，build 時用工具自動替換
     // 假設你已在 main.js 中將 clientId 掛載到 window
-    const clientId = window.VITE_GOOGLE_OAUTH2_CLIENT_ID; // 或直接寫死 clientId 字串（不建議上 production）
+    const clientId = window.VITE_GOOGLE_OAUTH2_CLIENT_ID; 
+    // 或直接寫死 clientId 字串（不建議上 production）
+
     const meta = document.createElement('meta');
     meta.name = 'google-signin-client_id';
     meta.content = clientId;

@@ -37,7 +37,6 @@ coverage
 *.tsbuildinfo
 
 # 環境變數檔案 (使用 # 而非 // 作為註解)  
-.env
 .env.*
 
 # gh-pages 快取

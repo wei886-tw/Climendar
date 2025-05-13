@@ -7,13 +7,19 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
 .DS_Store
+
+# Build outputs
 dist
 dist-ssr
+assets/*.js
+assets/*.css
 coverage
 *.local
 
+# Cypress
 /cypress/videos/
 /cypress/screenshots/
 
@@ -27,7 +33,12 @@ coverage
 *.sln
 *.sw?
 
+# TypeScript
 *.tsbuildinfo
 
-// 忽略 .env
-.env 
+# 環境變數檔案 (使用 # 而非 // 作為註解)  
+.env.*
+
+# gh-pages 快取
+.cache
+node_modules/.cache

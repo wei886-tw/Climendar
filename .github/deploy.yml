@@ -2,7 +2,7 @@ name: 部署到 GitHub Pages
 
 on:
   push:
-    branches: [ main ] # 改成你的主要分支名稱 (可能是 master 或 main)
+    branches: [ main ] # 或你使用的主分支名稱
 
 jobs:
   deploy:
@@ -27,3 +27,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
+          clean: true # 清除目標分支上的舊檔案

@@ -30,7 +30,7 @@ const router = createRouter({
     },
     {
       path: '/privacy',
-      name: 'privacyView',
+      name: 'privacy',
       component: PrivacyView,
     }
   ],

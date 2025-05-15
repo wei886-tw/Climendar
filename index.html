@@ -38,15 +38,19 @@
   <script>
     // 將 client_id 設為 placeholder，build 時用工具自動替換
     // 假設你已在 main.js 中將 clientId 掛載到 window
-    const clientId = window.VITE_GOOGLE_OAUTH2_CLIENT_ID; 
     // 或直接寫死 clientId 字串（不建議上 production）
-
+    const clientId = window.VITE_GOOGLE_OAUTH2_CLIENT_ID;
     const meta = document.createElement('meta');
     meta.name = 'google-signin-client_id';
-    meta.content = clientId;
+    meta.content = `${this.googleClientID}`;
     document.head.appendChild(meta);
   </script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script>
+    gapi.load('auth2', function () {
+      gapi.auth2.init();
+    })
+  </script>
 </body>
 
 </html>

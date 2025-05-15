@@ -3,7 +3,7 @@ import WelcomeView from '../views/WelcomeView.vue';
 import HomeView from '@/views/HomeView.vue';
 import CalendarView from '@/views/CalendarView.vue';
 import SignInView from '@/views/SignInView.vue';
-
+import PrivacyView from '@/views/PrivacyView.vue';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -28,6 +28,11 @@ const router = createRouter({
       name: 'signin',
       component: SignInView,
     },
+    {
+      path: '/privacy',
+      name: 'privacyView',
+      component: PrivacyView,
+    }
   ],
 });
 

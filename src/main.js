@@ -29,4 +29,5 @@ app.config.globalProperties.$gapi = {
   scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
   prompt: 'select_account'
 }
+
 app.mount('#app');

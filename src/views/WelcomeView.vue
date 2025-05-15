@@ -13,14 +13,17 @@
           <p class="fs-24 fw-bold mb-60 border-top border-bottom py-24">
             Plan your day with weather insights!
           </p>
-          <button class="btn btn-primary w-75 mb-24 rounded-5">
-            <router-link to="/home" class="text-white text-decoration-none"
-              >Get Started</router-link
-            ></button
-          ><button class="btn btn-primary w-75 rounded-5">
-            <router-link class="text-white text-decoration-none"
-            to="/signin">Sign In With Google</router-link>
-          </button>
+          <router-link to="/home" class="d-block w-75">
+            <button class="btn btn-primary w-100 mb-24 rounded-5 text-white text-decoration-none">
+              Start
+            </button>
+          </router-link>
+
+          <router-link to="/signin" class="d-block w-75">
+            <button class="btn btn-primary w-100 mb-24 rounded-5 text-white text-decoration-none">
+              Sign In With Google
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -31,8 +34,8 @@
 export default {
   data() {
     return {
-      googleOauthClientIds: import.meta.env.VITE_GOOGLE_OAUTH2_CLIENT_IDS
+      googleOauthClientIds: import.meta.env.VITE_GOOGLE_OAUTH2_CLIENT_IDS,
     }
-  }
+  },
 }
 </script>
